@@ -1,0 +1,122 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.busstopreminder"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+repositories {
+    maven {
+        url "http://maven.google.com/"
+    }
+}
+
+ext{
+    lifecycleVersion = '2.0.0'
+    nav_version = "2.1.0-alpha06"
+    firebase_version = '20.0.1'
+    androidXDependencies = [
+            multidex        : "com.android.support:multidex:1.0.3",
+            appcompat       : "androidx.appcompat:appcompat:1.0.2",
+            materialDesign  : "com.google.android.material:material:1.0.0",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.0-alpha1",
+            coreKtx         : 'androidx.core:core-ktx:1.0.1',
+            fragmentKtx     : 'androidx.fragment:fragment-ktx:1.0.0',
+            lifecycleExt    : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+            nav_fragment    : "androidx.navigation:navigation-fragment-ktx:$nav_version",
+            nav_ui          : "androidx.navigation:navigation-ui-ktx:$nav_version",
+            viewPager2      : "androidx.viewpager2:viewpager2:1.0.0",
+            multiType       : "com.drakeet.multitype:multitype:4.2.0"
+    ]
+
+    koinVersion = '2.2.2'
+    koinDependencies = [
+            core     : "org.koin:koin-android:$koinVersion",
+            scope    : "org.koin:koin-androidx-scope:$koinVersion",
+            viewModel: "org.koin:koin-androidx-viewmodel:$koinVersion"
+    ]
+
+    glideVersion = '4.12.0'
+    uiLibs = [
+            glide : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler: "com.github.bumptech.glide:compiler:$glideVersion"
+    ]
+
+    mapDependencies = [
+            yandexMap   : 'com.yandex.android:mapkit:3.5.0',
+            yandexDirections : 'com.yandex.android:directions:3.5.0',
+            yandexPlaces: 'com.yandex.android:places:3.5.0',
+            yandexMapSearch: 'com.yandex.android:search:3.5.0',
+            yandexTransport: 'com.yandex.android:transport:3.5.0'
+    ]
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    // Core
+    implementation androidXDependencies.multidex
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.lifecycleExt
+    implementation androidXDependencies.fragmentKtx
+    implementation androidXDependencies.coreKtx
+    implementation androidXDependencies.nav_ui
+    implementation androidXDependencies.nav_fragment
+    implementation androidXDependencies.viewPager2
+    implementation androidXDependencies.multiType
+
+    // Koin DI
+    implementation koinDependencies.core
+    implementation koinDependencies.scope
+    implementation koinDependencies.viewModel
+
+    //yandexMap
+    implementation mapDependencies.yandexMap
+    implementation mapDependencies.yandexDirections
+    implementation mapDependencies.yandexPlaces
+    implementation mapDependencies.yandexMapSearch
+    implementation mapDependencies.yandexTransport
+
+    //uiLibs
+    implementation uiLibs.glide
+    annotationProcessor uiLibs.glideCompiler
+}
