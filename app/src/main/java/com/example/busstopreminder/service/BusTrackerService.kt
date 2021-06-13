@@ -71,7 +71,7 @@ class BusTrackerService : Service() {
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                "Bus Reminder",
+                "BusReminder",
                 "BuStopReminder",
                 NotificationManager.IMPORTANCE_HIGH
             )
@@ -84,6 +84,7 @@ class BusTrackerService : Service() {
             channel.vibrationPattern = longArrayOf(1000, 3000, 1000, 3000, 1000, 3000, 1000 )
 
             notificationManager.createNotificationChannel(channel)
+            builder.setChannelId("BusReminder")
         }
         notifManager.notify(11, builder.build())
     }
