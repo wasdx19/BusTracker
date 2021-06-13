@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -15,9 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BusStopReminder">
+        <service
+            android:name=".service.BusTrackerService"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.launcher.LauncherActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +28,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".presentation.actions.ActionsActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
+        <activity
+            android:name=".presentation.main.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
+        <activity
+            android:name=".presentation.alarm.AlarmActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
+        <activity
+            android:name=".presentation.about.AboutActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
+        <activity
+            android:name=".presentation.alarm.AlarmParamActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
+        <activity
+            android:name=".presentation.alarm.SelectLocationActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
+        <activity
+            android:name=".presentation.notificationActivity.NotificationActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" />
     </application>
 
 </manifest>

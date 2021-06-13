@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor"
+        android:paddingTop="24dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Выберите точки маршрута"
+        app:titleTextColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+
+    <RelativeLayout
+        android:id="@+id/chooseLocationA"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dotA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="16dp"
+            app:srcCompat="@drawable/ic_location_dot" />
+
+        <TextView
+            android:id="@+id/locationAText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/dotA"
+            android:text="Выберите точку А"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+
+    <RelativeLayout
+        android:id="@+id/chooseLocationB"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dotB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="16dp"
+            app:srcCompat="@drawable/ic_location_dot" />
+
+        <TextView
+            android:id="@+id/locationBText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/dotB"
+            android:text="Выберите точку В"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray" />
+
+    <RelativeLayout
+        android:id="@+id/chooseDistance"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="16dp"
+            app:srcCompat="@drawable/ic_location_dot" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/distanceSpinner"
+            android:layout_toEndOf="@id/distance"
+            android:text="Выберите дистанцию"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/distanceSpinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:text="Выберите дистанцию"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/primaryColor"
+        android:text="Сохранить"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="48dp"/>
+</LinearLayout>

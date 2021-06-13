@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/takePlacedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/logo"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_rounded_primary_color_8dp"
+        android:text="Я уже сел в автобус, напомните когда будет конечная оставновка"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/forgotBusButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/takePlacedButton"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_rounded_primary_color_8dp"
+        android:text="Я пропустил автобус, напомните еще раз"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/forgotBusButton"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_rounded_primary_color_8dp"
+        android:text="Выйти"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

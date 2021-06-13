@@ -77,6 +77,17 @@ ext{
             yandexMapSearch: 'com.yandex.android:search:3.5.0',
             yandexTransport: 'com.yandex.android:transport:3.5.0'
     ]
+
+    retrofitVersion = '2.6.0'
+    networkDependencies = [
+            core         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            scalars      : "com.squareup.retrofit2:converter-scalars:$retrofitVersion",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            gson         : 'com.google.code.gson:gson:2.8.6',
+            tus          : 'io.tus.android.client:tus-android-client:0.1.9',
+            tusJava      : 'io.tus.java.client:tus-java-client:0.4.2'
+    ]
 }
 
 dependencies {
@@ -119,4 +130,7 @@ dependencies {
     //uiLibs
     implementation uiLibs.glide
     annotationProcessor uiLibs.glideCompiler
+
+    //network
+    implementation networkDependencies.gson
 }

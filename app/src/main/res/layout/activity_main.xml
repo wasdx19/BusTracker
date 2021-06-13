@@ -7,55 +7,64 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.main.MainActivity">
 
     <com.yandex.mapkit.mapview.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
-        android:id="@+id/chooseLocationsView"
+    <RelativeLayout
+        android:id="@+id/selectDirectionsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/bg_rounded_raduis_8dp"
-        android:orientation="vertical">
+        android:background="@color/primaryColor"
+        android:paddingBottom="16dp">
 
-        <EditText
-            android:id="@+id/fromLocationView"
+        <LinearLayout
+            android:id="@+id/chooseLocationsView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="Точка A"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp"
-            android:textColor="#000000" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
             android:layout_marginHorizontal="16dp"
-            android:background="#000000" />
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_rounded_radius_8dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/toLocationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="Точка Б"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp"
-            android:textColor="#000000" />
+            <EditText
+                android:id="@+id/fromLocationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Точка A"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:textColor="#000000" />
 
-    </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="#000000" />
+
+            <EditText
+                android:id="@+id/toLocationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Точка Б"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/userLocationView"
@@ -64,7 +73,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_rounded_raduis_8dp">
+        android:background="@drawable/bg_rounded_radius_8dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="32dp"
@@ -78,10 +87,8 @@
         android:id="@+id/resultView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/chooseLocationsView"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/bg_rounded_raduis_8dp"
+        android:layout_below="@id/selectDirectionsView"
+        android:background="@color/primaryColor"
         android:visibility="gone">
 
         <ListView
@@ -94,18 +101,68 @@
 
     <RelativeLayout
         android:id="@+id/goBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/bg_rounded_raduis_8dp">
+        android:layout_marginBottom="24dp"
+        android:visibility="visible"
+        android:background="@drawable/bg_rounded_primary_color_50dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_centerInParent="true"
             app:srcCompat="@drawable/ic_bus" />
+
     </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/busList"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:visibility="gone"
+        tools:listitem="@layout/item_bus_lines"
+        android:layout_alignParentBottom="true"/>
+
+    <RelativeLayout
+        android:id="@+id/placeInfoView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/bg_rounded_radius_8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/placeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="SeventyCoffee" />
+
+        <RelativeLayout
+            android:id="@+id/directionButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_rounded_primary_color_8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/ic_directions" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
